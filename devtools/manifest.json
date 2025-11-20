@@ -1,22 +1,20 @@
 {
   "name": "track-react",
-  "version": "1.0",
+  "version": "1.0.0",
   "manifest_version": 3,
-  "description": "Custom DevTools panel using React and Vite",
-  "devtools_page": "./devtools.html",
-
+  "description": "DevTools panel that displays messages bridged from window.postMessage.",
+  "devtools_page": "devtools.html",
   "background": {
     "service_worker": "background.js",
     "type": "module"
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": [
+        "http://localhost/*",
+        "https://localhost/*"
+      ],
       "js": ["content.js"]
     }
-  ],
-  "permissions": ["scripting"],
-  "action": {
-    "default_title": "track-react DevTools"
-  }
+  ]
 }

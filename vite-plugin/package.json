@@ -1,6 +1,6 @@
 {
   "name": "track-react",
-  "version": "0.0.5",
+  "version": "0.0.9",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -26,20 +26,21 @@
     "dist",
     "runtime"
   ],
-  "dependencies": {
+  "peerDependencies": {
+    "vite": "^4.0.0 || ^5.0.0 || ^7.0.0",
+    "@babel/core": "^7.28.0",
+    "@babel/plugin-syntax-jsx": "^7.27.1",
+    "@babel/plugin-syntax-typescript": "^7.27.1"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.0",
+    "typescript": "^5.4.5",
+    "vite": "^7.0.0",
     "@babel/core": "^7.28.0",
     "@babel/plugin-syntax-jsx": "^7.27.1",
     "@babel/plugin-syntax-typescript": "^7.27.1",
     "@babel/preset-react": "^7.27.1",
     "@babel/preset-typescript": "^7.27.1"
-  },
-  "peerDependencies": {
-    "vite": "^4.0.0 || ^5.0.0 || ^7.0.0"
-  },
-  "devDependencies": {
-    "tsup": "^8.5.0",
-    "typescript": "^5.4.5",
-    "vite": "^7.0.0"
   },
   "scripts": {
     "build": "tsup"

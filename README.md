@@ -64,6 +64,14 @@ export default defineConfig({
 
 ## 🔧 How It Works
 
+### Runtime Model & Packaging
+
+- Running `npm install track-react --save-dev` installs **only the published Vite plugin package** (from this repo’s `vite-plugin/`), not the entire repository and **not** the Chrome DevTools extension UI.
+- The npm package ships the **compiled build from `vite-plugin/dist/`** plus lightweight **runtime helpers** from `vite-plugin/runtime/`. These are the only files included via the package’s `"files"` field and surfaced through its `"exports"` map.
+- What you add to your app is a **front-end–only** development tool: the Vite plugin + Babel transforms and the async event-tracking runtime (`fetch`, `async/await`, `useEffect`). Tracked events are forwarded to the Track-React DevTools panel when the extension is installed.
+- There is **no backend** component. You **do not** need to run any additional servers during development—just run your app and open the Track-React panel in DevTools.
+- Keep it as a **dev dependency** and enable `trackReactPlugin()` in your Vite config. The plugin declares `vite` as a peer dependency.
+
 ### Code Transformation
 
 Track-react uses Babel plugins to transform your code during development:

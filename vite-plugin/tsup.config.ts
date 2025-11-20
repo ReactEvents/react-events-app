@@ -21,8 +21,8 @@ export default defineConfig({
   // ④ node target (affects down‑leveling)
   target: 'node18',
 
-  // ⑤ leave these deps unbundled
-  noExternal: [
+  // ⑤ leave these deps unbundled (external means they won't be bundled)
+  external: [
     'vite',
     '@babel/core',
     '@babel/plugin-syntax-jsx',
@@ -30,7 +30,7 @@ export default defineConfig({
     'fs',
     'path',
   ],
-
+  
   tsconfig: 'tsconfig.json',
 
   //⑥ run after build succeeds
